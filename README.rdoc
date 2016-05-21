@@ -3,26 +3,64 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+#DB設計書
 
-* Ruby version
 
-* System dependencies
+## モデル間のアソシエーション
+*articles(1)に対してimages(他) articles has_many images, images belongs_to article 以下はそれぞれを簡略化して説明
 
-* Configuration
+*article has_many images, comments.  
+*article belongs_to user,  
+*image belongs_to article  
+*comment belongs_to tweet, user  
+*user has_many articles, comments  
 
-* Database creation
+____________________________________________________
 
-* Database initialization
+## 作成するテーブル
+*users  
+*comments  
+*articles(メイン)  
+*images  
 
-* How to run the test suite
+_____________________________________________________
 
-* Services (job queues, cache servers, search engines, etc.)
+## テーブルにおけるカラム
 
-* Deployment instructions
+### usersテーブルについて
+*id  
+*name  
+*email  
+*encrypted_password  
 
-* ...
+### commentsテーブルについて
+*id  
+*user_id  
+*article_id  
+*text  
 
+###articlesテーブルについて
+*id  
+*title  
+*catchcopy  
+*concept  
+
+###imagesテーブルについて
+*id  
+*article_id  
+*image_url  
+
+________________________________________________________
+
+## カラムのデータ型
+*id系一般 integer型  
+*name string型  
+*title string型  
+*catchcopy text型  
+*concept text型  
+*email string型  
+encrypted_password string型  
+*timestamps型  
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
