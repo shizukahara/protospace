@@ -52,6 +52,7 @@ _____________________________________________________
 
 ### column  
 * id integer型  
+* comment_id integer型  
 * title string型  
 * catchcopy text型  
 * concept text型  
@@ -63,7 +64,7 @@ _____________________________________________________
 
 ### column  
 * id integer型  
-* article_id integer型  
+* prototype_id integer型  
 * image_url text型  
 
 ## likes table  
@@ -73,6 +74,7 @@ _____________________________________________________
 
 ### column  
 * id integer型  
+* prototype_id integer  
 
 ________________________________________________________
 
