@@ -16,7 +16,7 @@ _____________________________________________________
 ## users table  
 
 ### association  
-* user has_many prototypes, comments  
+* user has_many prototypes, comments, likes  
 
 
 ### column
@@ -40,8 +40,8 @@ _____________________________________________________
 
 ### column  
 * id integer型　
-* user_id integer型  
-* article_id integer型  
+* user_id references型  
+* prototype_id references型  
 * text text型  
 
 ## prototypes table  
@@ -52,7 +52,8 @@ _____________________________________________________
 
 ### column  
 * id integer型  
-* comment_id integer型  
+* comment_id references型  
+* user_id references型  
 * title string型  
 * catchcopy text型  
 * concept text型  
@@ -64,17 +65,19 @@ _____________________________________________________
 
 ### column  
 * id integer型  
-* prototype_id integer型  
+* prototype_id references型  
 * image_url text型  
 
 ## likes table  
 
 ### association  
 * like belongs_to prototype
+* like belongs_to users
 
 ### column  
 * id integer型  
-* prototype_id integer  
+* prototype_id references型  
+* user_id references型  
 
 ________________________________________________________
 
