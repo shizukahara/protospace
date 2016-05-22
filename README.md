@@ -52,7 +52,6 @@ _____________________________________________________
 
 ### column  
 * id integer型  
-* comment_id references型  
 * user_id references型  
 * title string型  
 * catchcopy text型  
