@@ -9,8 +9,8 @@
       %label
         %input{type: "checkbox", value: "remember-me"}/
         Remember me
-    =button_tag.btn.btn-lg.btn-primary.btn-block{type: "submit"} Sign in
+    = button_tag "Sign in"
   .text-center
     %p
       Not a member?
-      = link_to{href: "/users/sign_in"} Sign up now
+      = link_to 'Sign up now', '/users/sign_in'

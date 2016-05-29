@@ -52,4 +52,5 @@ end
   gem 'sprockets', '2.11.0'
   gem 'haml-rails'
   gem 'devise'
+  gem 'erb2haml'
 
