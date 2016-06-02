@@ -2,9 +2,12 @@ class PrototypesController < ApplicationController
 
   
   def index
-    
+    @nickname = current_user.nickname
   end
 
+ def new
+   
+ end
 
 
   def move_to_index
