@@ -8,7 +8,7 @@
             = f.text_field :nickname, placeholder: 'Username'
           .user-image.col-md-2
             = f.button 'Add image', class: 'btn btn-primary'
-            = f.file_field :avater, class: 'form_control_file'
+            = f.file_field :avatar, class: 'form_control_file'
         = f.email_field :email, placeholder: "E-Mail", class: 'form_control'
         = f.password_field :password, placeholder: 'password', class: 'input user-password'
       .col-md-12
@@ -23,6 +23,6 @@
         %h4 Works
         .user-name_image.row
           .user-name.col-md-12
-            = f.text_area :works, placeholder: "Works", cols: "30", rows: "4"
+            = f.text_area :work, placeholder: "Works", cols: "30", rows: "4"
     .row.text-center.user-btn
       = f.submit 'Save', class: 'btn btn-lg btn-primary btn-block'
