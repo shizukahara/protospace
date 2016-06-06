@@ -52,4 +52,5 @@ end
   gem 'devise'
   gem 'erb2haml'
   gem 'paperclip'
+  gem 'carrierwave'
 
