@@ -5,14 +5,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
 
   def after_sign_out_path_for(resource)
     '/users/sign_in' # サインアウト後のリダイレクト先URL
   end
 
    def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up).push(:nickname, :avatar)
-    end
+      devise_parameter_sanitizer.for(:sign_up).push(:profile, :member, :topmedia, :nickname, :avatar, :work)
+      devise_parameter_sanitizer.for(:account_update).push(:profile, :member, :topmedia, :nickname, :avatar, :work)
+   end
 end
