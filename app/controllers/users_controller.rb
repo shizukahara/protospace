@@ -8,8 +8,22 @@ class UsersController < ApplicationController
 
   end
 
-  def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up).push(:profile, :member, :topmedia, :nickname, :avatar, :work)
-      devise_parameter_sanitizer.for(:account_update).push(:profile, :member, :topmedia, :nickname, :avatar, :work)
+  def destroy
+    
   end
+
+
+
+    private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_avatar
+      @user = User.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def avatar_params
+      params.require(:user).permit(:description, :avatar)
+    end
+
 end
+
