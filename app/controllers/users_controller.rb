@@ -5,11 +5,12 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    current_user.update(update_params)
+    redirect_to action: :show
   end
 
   def destroy
-    
+
   end
 
   def show
@@ -27,6 +28,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def avatar_params
       params.require(:user).permit(:description, :avatar)
+    end
+
+    def update_params
+      params.require(:user).permit(:image, :text, :avatar, :work, :private, :profile, :member)
     end
 
 end
