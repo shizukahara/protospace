@@ -17,14 +17,14 @@ module DeviseHelper
 
   def resource_name
    :user
-end
+  end
 
-def resource
+  def resource
    @resource ||= User.new
-end
+  end
 
-def devise_mapping
+  def devise_mapping
    @devise_mapping ||= Devise.mappings[:user]
-end
+  end
 end
 
