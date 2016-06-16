@@ -28,7 +28,7 @@ class PrototypesController < ApplicationController
       :concept,
       :user_id,
       :image_url,
-      thumbnails_attributes: [:id, :status]
+      thumbnails_attributes: [:id, :status, :image_url]
       ).merge(user_id: current_user.id)
   end
 
