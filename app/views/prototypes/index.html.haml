@@ -31,6 +31,28 @@
               %li
                 = link_to 'wireframe', '#', class: "btn btn-default"
 
+
+.container.proto-list
+  .row
+    - @prototypes.each do |prototype|
+      .col-sm-4.col-md-3.proto-content
+        .thumbnail
+          = link_to '/prototypes/show' do
+            = image_tag("prototype.image_url")
+            .caption
+              %h3
+                = prototype.title
+              .proto-meta
+                .proto-user
+                  = link_to 'by User', 'users/:id'
+                .proto-posted
+                  Apr 26
+              %ul.proto-tag-list.list-inline
+                %li
+                  = link_to 'iPad', '#', class: "btn btn-default"
+                %li
+                  = link_to 'wireframe', '#', class: "btn btn-default"
+
 .text-center
   %ul.pagination
     %li.disabled
