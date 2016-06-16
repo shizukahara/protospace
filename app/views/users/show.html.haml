@@ -3,7 +3,7 @@
     .media
       .media-left
         = link_to '#'
-        %img.media_object{alt: '64x64', data_holder_rendered:"true", data_src: "holder.js/64x64", style: 'width: 64px; height: 64px;' }
+        %img.media_object{ alt: "64x64", data_holder_rendered: "true", data_src: "holder.js/64x64", style: "width: 64px; height: 64px;", src: @user.avatar }/
 
       .media-body
         %h4#top-aligned-media.media-heading
