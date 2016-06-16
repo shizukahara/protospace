@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
   root 'prototypes#index'
 
-  resources :prototypes, only: [:index, :new, :show]
+  resources :prototypes, only: [:index, :update, :show, :create, :new]
   resources :users, only:[:show, :edit, :update]
 
 end
