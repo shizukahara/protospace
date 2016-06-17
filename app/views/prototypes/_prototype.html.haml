@@ -1,0 +1,18 @@
+.col-sm-4.col-md-3.proto-content
+  .thumbnail
+    = link_to '/prototypes/show' do
+      = image_tag (prototype.thumbnails.first.image_url)
+      .caption
+        %h3
+          = prototype.title
+        .proto-meta
+          .proto-user
+            = link_to "by #{prototype.user.nickname}", 'users/:id'
+
+          .proto-posted
+            = link_to "#{prototype.created_at}", format: :default
+        %ul.proto-tag-list.list-inline
+          %li
+            = link_to 'iPad', '#', class: "btn btn-default"
+          %li
+            = link_to 'wireframe', '#', class: "btn btn-default"
