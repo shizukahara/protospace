@@ -2,17 +2,21 @@ class PrototypesController < ApplicationController
   before_action :move_to_index, except: :index
   
   def index
-    @prototypes = Prototype.all.order('id ASC')
+
+    @prototypes = Prototype.includes(:user, :thumbnails).order('created_at DESC')
   end
 
   def new
    @prototype = Prototype.new
-   3.times { @prototype.thumbnails.build }
+   @prototype.thumbnails.build
+  
+
   end
 
   def create
     Prototype.create(prototype_params)
     redirect_to action: :index
+
   end
 
 
