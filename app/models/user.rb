@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, on: :update, allow_blank: true
 
   validates :email, presence: true
+  validates :nickname, presence: true
 
   mount_uploader :avatar, ImageUploader
 

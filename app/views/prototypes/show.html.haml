@@ -7,10 +7,13 @@
         %img.media-pbject{ alt: "64×64", data_holder_rendered: "true", data_src: "holder.js/64×64", style: "width: 64px; height: 64px;" }/
         .media-body
           %h4#top-aligned-media.media-heading
-            #{ @prototype.title }
+            = @prototype.title
           .proto-user
-            = link_to "by #{@prototype.user.nickname}", 'users/:id'
-            %span.degree #{ @user.member } / #{ @user.work }
+            = link_to "by #{@prototype.user.nickname}", user_path
+            %span.degree
+              = @user.member
+            %span
+              = @user.work
 
     .col-md-6.text-right
       %button.btn.btn-default
@@ -51,7 +54,7 @@
     .col-md-8
       .media
         .media-left
-          
+
         .media-body
           %h4#top-aligned-media.media-heading
             Top aligned media
