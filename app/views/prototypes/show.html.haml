@@ -26,20 +26,18 @@
     .col-md-3
       %ul.proto-sub-list.list-group
         %li.list-group-item
-          = image_tag(@prototype.thumbnails.second.image_url, class: 'img-responsive')
-        %li.list-group-item
-          = image_tag(@prototype.thumbnails.third.image_url, class: 'img-responsive')
-        %li.list-group-item
-          .image-upload-plus
-            %span +
+          - @prototypes.each do |prototype|
+            = link_to prototype_path(prototype), class: 'sub_images' do
+              = image_tag(prototype.image_url, class: 'img-responsive') if prototype.image_url.present?
+
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
-      %p #{ @prototype.catchcopy }
+      %p= @prototype.catchcopy
 
     .col-md-6
       %h4 Concept
-      %p #{ @prototype.concept }
+      %p= @prototype.concept
     .col-md-3
       %h4 Tag List
       %ul.proto-tag-list.list-inline
