@@ -18,6 +18,7 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @prototypes = @prototype.thumbnails.sub
     @user = @prototype.user
   end
 
