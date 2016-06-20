@@ -22,7 +22,7 @@
 .text-center
   %ul.pagination
     %li.disabled
-      %a{ area: { label: 'Previous' }, href: '#' }
+      = link_to '#' do
         %span{ aria: { hidden: 'true' }} «
     %li.active
       = link_to '1', '#'
