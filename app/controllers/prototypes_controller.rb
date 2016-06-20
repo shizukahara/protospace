@@ -3,6 +3,7 @@ class PrototypesController < ApplicationController
 
   def index
     @prototypes = Prototype.includes(:user, :thumbnails).order('created_at DESC')
+    @nickname = current_user.nickname
   end
 
   def new
