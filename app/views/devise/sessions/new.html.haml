@@ -1,10 +1,12 @@
 .container
-  %form.form-signin
-    %h2.form-signin-heading Please sign in
+  %h2.form-signin-heading Please sign in
+  %form.form-signin{ accept: { charset: 'UTF-8' }, action: '/users/sign_in', method: 'post' }
+    %input{ name: 'utf8', type: 'hidden', value: '✓' }/
+    %input{ name: 'authenticity_token', type: 'hidden', value: 'pzs6LiAqslPauoS7G46UMKZYJWakf+knwLv/pbm6ISWLQTZuFX5FUSi2kAddxeQIb5/rcHhwm5V93njKd7RRrQ==' }/
     %label.sr-only{ for: "inputEmail" } Email address
-    %input#inputEmail.form-control{autofocus: "", placeholder: "Email address", required: "", type: "email"}/
+    %input#inputEmail.form-control{ autofocus: 'ON', name: 'user[email]', placeholder: "Email address", required: "", type: "email" }/
     %label.sr-only{ for: "inputPassword" } Password
-    %input#inputPassword.form-control{ placeholder: "Password", required: "", type: "password" }/
+    %input#inputPassword.form-control{ autocomplete: 'off', name: 'user[password]', placeholder: 'Input Password', required: 'required', type: 'password' }/
     .checkbox
       %label
         %input{ type: "checkbox", value: "remember-me" }/
