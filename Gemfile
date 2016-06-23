@@ -53,4 +53,5 @@ end
   gem 'erb2haml'
   gem 'paperclip'
   gem 'carrierwave'
+  gem 'rmagick'
 
