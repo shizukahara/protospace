@@ -1,9 +1,10 @@
 class PrototypesController < ApplicationController
   before_action :move_to_index, except: :index
+  before_action :setting_prototype, only: [:edit, :show, :update, :destroy]
 
   def index
     @prototypes = Prototype.includes(:user, :thumbnails).order('created_at DESC')
-    @nickname = current_user.nickname
+
   end
 
   def new
@@ -14,13 +15,30 @@ class PrototypesController < ApplicationController
   def create
     Prototype.create(prototype_params)
     redirect_to action: :index
-
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
     @prototypes = @prototype.thumbnails.sub
     @user = @prototype.user
+  end
+
+  def edit
+    @main_image = @prototype.thumbnails.main
+    @sub_images = @prototype.thumbnails.sub
+  end
+
+  def update
+    if @prototype.user_id == current_user.id
+       @prototype.update(prototype_params)
+    end
+    redirect_to action: :index
+  end
+
+  def destroy
+    if @prototype.user_id == current_user.id
+      @prototype.destroy
+    end
+    redirect_to action: :index
   end
 
 
@@ -38,6 +56,10 @@ class PrototypesController < ApplicationController
       :image_url,
       thumbnails_attributes: [:id, :status, :image_url]
       ).merge(user_id: current_user.id)
+  end
+
+  def setting_prototype
+    @prototype = Prototype.find(params[:id])
   end
 
 
