@@ -1,0 +1,11 @@
+.more{
+  width: 80px;
+  text-align: right;
+  &:hover ul.morelist
+  display: block;
+}
+
+ul.morelist{
+  position: absolute;
+  text-align: left;
+}
