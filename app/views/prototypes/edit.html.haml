@@ -8,7 +8,7 @@
         .col-md-12
           .cover-image-upload
             = image_tag(@prototype.thumbnails.first.image_url, class: 'img-responsive')
-            = f.fields_for :thumbnails, @prototype.thumbnails.main[0] do |thumbnails_form|
+            = f.fields_for :thumbnails, @prototype.thumbnails.main do |thumbnails_form|
               = thumbnails_form.file_field :image_url, class: "cover-image-upload"
               = thumbnails_form.hidden_field :status, value: "main"
 
@@ -16,7 +16,7 @@
 
         .col-md-12
           %ul.proto-sub-list.list-group
-            = f.fields_for :thumbnails, @prototype.thumbnails.sub[1] do |thumbnails_form|
+            = f.fields_for :thumbnails, @prototype.thumbnails.sub.first do |thumbnails_form|
               %li.list-group-item.col-md-4
 
                 .image-upload
@@ -27,7 +27,7 @@
 
 
 
-            = f.fields_for :thumbnails, @prototype.thumbnails.sub[1] do |thumbnails_form|
+            = f.fields_for :thumbnails, @prototype.thumbnails.sub.second do |thumbnails_form|
               %li.list-group-item.col-md-4
 
                 .image-upload
