@@ -4,7 +4,6 @@ class PrototypesController < ApplicationController
 
   def index
     @prototypes = Prototype.includes(:user, :thumbnails).order('created_at DESC')
-
   end
 
   def new
@@ -28,16 +27,12 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    if @prototype.user_id == current_user.id
-       @prototype.update(prototype_params)
-    end
+    @prototype.update(prototype_params) if @prototype.user_id == current_user.id
     redirect_to action: :index
   end
 
   def destroy
-    if @prototype.user_id == current_user.id
-      @prototype.destroy
-    end
+    @prototype.destroy if @prototype.user_id == current_user.id
     redirect_to action: :index
   end
 
