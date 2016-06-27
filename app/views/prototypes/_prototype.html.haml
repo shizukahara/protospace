@@ -5,7 +5,7 @@
 
     .navbar-collapse.collapse.navbar-responsive-collapse
       //編集削除
-      - if user_signed_in?
+      - if user_signed_in? && current_user.id == prototype.user_id
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
             %a.dropdown-toggle{ "aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button" }
