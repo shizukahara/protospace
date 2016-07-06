@@ -19,6 +19,8 @@ class PrototypesController < ApplicationController
   def show
     @prototypes = @prototype.thumbnails.sub
     @user = @prototype.user
+    @comment = Comment.new(prototype_id: @prototype_id)
+    @comments = @prototype.comments.includes(:user, :prototype)
   end
 
   def edit
