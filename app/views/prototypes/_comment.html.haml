@@ -1,9 +1,9 @@
 .media
   .media-left
-    = link_to image_tag(comment.user.avatar, alt: '64x64', size: "64x64", class: 'media-object' ), user_path(comment.user)
+    = link_to image_tag(current_user.avatar, alt: '64x64', size: "64x64", class: 'media-object' ), user_path(current_user)
   .media-body
     %h4#top-aligned-media.media-heading
-      = link_to current_user.nickname, user_path(comment.user)
+      = link_to current_user.nickname
     .anchorjs-link
       .anchorjs-icon
         %p
