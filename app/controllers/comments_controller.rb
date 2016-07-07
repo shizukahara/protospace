@@ -16,5 +16,3 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text, :user_id)
   end
 end
-
-
