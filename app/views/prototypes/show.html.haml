@@ -41,9 +41,9 @@
       %h4 Tag List
       %ul.proto-tag-list.list-inline
         %li
-          %a{ href: "#", class: "btn btn-default" } iPad
+          = link_to 'iPad', '#', class: "btn btn-default"
         %li
-          %a{ href: "#", class: "btn btn-default" } wireframe
+          = link_to 'wireframe', '#', class: "btn btn-default"
   .row.proto-comments
     %h4.col-md-12
       Comments
@@ -51,7 +51,7 @@
     .col-md-8
       = render partial: 'prototypes/comment', collection: @comments
 
-      %form.form-inline{ role: "form" }
+      %form.form-inline
       - if user_signed_in?
         = form_for [@prototype, @comment], remote: true do |f|
           = f.hidden_field :user_id, value: current_user.id
