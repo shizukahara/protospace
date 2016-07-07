@@ -3,8 +3,7 @@
     .col-md-6
       .media
         .media-left
-        = link_to ''
-        %img.media-pbject{ alt: "64×64", data_holder_rendered: "true", data_src: "holder.js/64×64", style: "width: 64px; height: 64px;" }/
+          = link_to image_tag(current_user.avatar, alt: '64x64', size: "64x64", class: 'media-object' ), user_path(current_user)
         .media-body
           %h4#top-aligned-media.media-heading
             = @prototype.title
@@ -42,9 +41,9 @@
       %h4 Tag List
       %ul.proto-tag-list.list-inline
         %li
-          %a{href: "#", class: "btn btn-default"} iPad
+          %a{ href: "#", class: "btn btn-default" } iPad
         %li
-          %a{href: "#", class: "btn btn-default"} wireframe
+          %a{ href: "#", class: "btn btn-default" } wireframe
   .row.proto-comments
     %h4.col-md-12
       Comments
@@ -52,17 +51,16 @@
     .col-md-8
       = render partial: 'prototypes/comment', collection: @comments
 
-      %form.form-inline{role: "form"}
-        - if user_signed_in?
-          = form_for [@prototype, @comment], url: "/prototypes/#{@prototype_id}/comments", method: :post, remote: true do |f|
-            = f.hidden_field :user_id, value: current_user.id
-            = f.hidden_field :prototype_id, value: @prototype.id
-            %h4 Write a comment
-            .row
-              .form-group.col-md-10
-                = f.text_area :text, placeholder: 'Your comments', rows: "3", id: "comment_content", class: "form-control"
-              .form-group.col-md-2
-                = f.submit 'Comment', class: 'btn btn-primary'
+      %form.form-inline{ role: "form" }
+      - if user_signed_in?
+        = form_for [@prototype, @comment], remote: true do |f|
+          = f.hidden_field :user_id, value: current_user.id
+          %h4 Write a comment
+          .row
+            .form-group.col-md-10
+              = f.text_area :text, requiere: true, placeholder: "Your comments", rows: "3", cols: "60", id: "comment_content", class: "form-control"
+            .form-group.col-md-2
+              = f.submit "COMMENT", class: "button btn btn-primary"
 
 
 
