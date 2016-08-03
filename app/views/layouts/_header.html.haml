@@ -11,7 +11,7 @@
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
           %li.dropdown
-            %a.dropdown-toggle{ "aria-expanded" => "false", "data-toggle" => "dropdown", href: "#", role: "button" }
+            = link_to '#', data: { toggle: "dropdown"}, role: "button", aria: {expanded: "true"}, class: 'drop' do
               = current_user.nickname
               %span.caret
             %ul.dropdown-menu{ role: "menu" }
@@ -29,4 +29,4 @@
         %ul.nav.navbar-nav.navbar-right
           %li
             .btn.btn-primary.navbar-btn
-              = link_to 'Get Started', '/users/sign_in'
+              = link_to 'Get Started', new_user_session_path
