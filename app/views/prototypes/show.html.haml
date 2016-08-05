@@ -24,7 +24,7 @@
       = image_tag(@prototype.thumbnails.first.image_url, class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
-        - @prototypes.each do |prototype|
+        - @thumbnails.each do |prototype|
           = link_to prototype_path(prototype), class: 'sub_images' do
             %li.list-group-item
               = image_tag(prototype.image_url, class: 'img-responsive') if prototype.image_url.present?
