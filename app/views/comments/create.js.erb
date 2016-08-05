@@ -1,3 +1,4 @@
+$('#js-comments-counts').html("<%= @comments.length %>");
 $('#comment_content').val('');
 $('#js-comments').html(
   '<%= j(render partial: "comments/comment", collection: @prototype.comments) %>'
