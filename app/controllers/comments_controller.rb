@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
   def create
     @comment = @prototype.comments.create(comment_params)
     @comments = @prototype.comments.includes(:user, :prototype)
-     #コメントと結びつくツイートの詳細画面に遷移する
   end
 
   private
