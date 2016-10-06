@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_prototype
   def create
-    @comment = @prototype.comments.create(comment_params)
+    @comment = current_user.comments.create(comment_params)
     @comments = @prototype.comments.includes(:user, :prototype)
   end
 
@@ -11,6 +11,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:text, :user_id)
+    params.require(:comment).permit(:text).merge(prototype_id: params[:prototype_id])
   end
 end
