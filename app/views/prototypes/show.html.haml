@@ -54,7 +54,6 @@
         = render partial: 'comments/comment', collection: @comments
       - if user_signed_in?
         = form_for [@prototype, @comment], remote: true do |f|
-          = f.hidden_field :user_id, value: current_user.id
           %h4 Write a comment
           .row
             .form-group.col-md-10
