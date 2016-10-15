@@ -44,21 +44,20 @@ class PrototypesController < ApplicationController
 
 
   private
+
   def move_to_index
      redirect_to action: :index unless user_signed_in?
   end
 
   def prototype_params
     params.require(:prototype).permit(
-
       :title,
       :catchcopy,
       :concept,
       :user_id,
       :image_url,
       thumbnails_attributes: [:id, :status, :image_url]
-
-      )
+    )
   end
 
   def setting_prototype
