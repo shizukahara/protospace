@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 
   def create
-    @prototype = Prototype.includes(:user, :thumbnails).find(params[:prototype_id])
+    @prototype = Prototype.find(params[:prototype_id])
     @comment = current_user.comments.create(comment_params)
-    @comments = @prototype.comments.includes(:user, :prototype)
+    @comments = Comment.where(prototype_id: @prototype)
   end
 
   private
