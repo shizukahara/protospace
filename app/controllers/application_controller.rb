@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :info, :warning, :danger
 
+  private
   def after_sign_out_path_for(resource)
     '/users/sign_in' # サインアウト後のリダイレクト先URL
   end

@@ -6,19 +6,25 @@ class PrototypesController < ApplicationController
     @prototypes = Prototype.includes(:user, :thumbnails).order('created_at DESC')
   end
 
+  def show
+    @thumbnails = @prototype.thumbnails.sub
+    @user = @prototype.user
+    @comment = Comment.new(prototype_id: @prototype_id)
+    @comments = @prototype.comments.includes(:user)
+  end
+
   def new
     @prototype = Prototype.new
     @prototype.thumbnails.build
   end
 
   def create
-    Prototype.create(prototype_params)
-    redirect_to action: :index
-  end
-
-  def show
-    @prototypes = @prototype.thumbnails.sub
-    @user = @prototype.user
+    @prototype = current_user.prototypes.new(prototype_params)
+    if @prototype.save
+      redirect_to root_path, notice: 'The page was uploaded'
+    else
+      redirect_to new_prototype_path, alert: 'Please retry'
+    end
   end
 
   def edit
@@ -38,6 +44,7 @@ class PrototypesController < ApplicationController
 
 
   private
+
   def move_to_index
      redirect_to action: :index unless user_signed_in?
   end
@@ -50,7 +57,7 @@ class PrototypesController < ApplicationController
       :user_id,
       :image_url,
       thumbnails_attributes: [:id, :status, :image_url]
-      ).merge(user_id: current_user.id)
+    )
   end
 
   def setting_prototype
