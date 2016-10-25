@@ -57,6 +57,8 @@ class PrototypesController < ApplicationController
       :concept,
       :user_id,
       :image_url,
+      :likes_count,
+      :created_at,
       thumbnails_attributes: [:id, :status, :image_url]
     )
   end
