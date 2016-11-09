@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :setting_prototype, only: [:edit, :show, :update, :destroy]
 
   def index
-    @prototypes = Prototype.includes(:user, :thumbnails).order('created_at DESC')
+    @prototypes = Prototype.includes(:user, :thumbnails, :tags).order('created_at DESC')
   end
 
   def show
@@ -58,7 +58,7 @@ class PrototypesController < ApplicationController
       :user_id,
       :image_url,
       thumbnails_attributes: [:id, :status, :image_url]
-    )
+    ).merge(tag_list: params[:prototype][:tag])
   end
 
   def setting_prototype
