@@ -55,4 +55,5 @@ end
   gem 'paperclip'
   gem 'carrierwave'
   gem 'rmagick'
+  gem 'acts-as-taggable-on'
 
