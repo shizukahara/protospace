@@ -9,6 +9,9 @@ class Prototype < ActiveRecord::Base
   validates :concept,     presence: true
   validates :title,       presence: true
 
+  acts_as_taggable_on :prototypes # prototype.label_list が追加される
+  acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
+
   def like_user(user_id)
    likes.find_by(user_id: user_id)
   end
