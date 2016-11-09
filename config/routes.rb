@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   scope module: :prototypes do
     resources :newest, only: :index
     resources :popular, only: :index
+    resources :tags, only: [:index, :show]
   end
 
   resources :users, only: [:show, :edit, :update]
