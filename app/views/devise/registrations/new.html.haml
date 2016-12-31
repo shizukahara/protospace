@@ -9,7 +9,7 @@
             = f.text_field :nickname, placeholder: 'Username'
           .user-image.col-md-2
             = f.button 'Add image', class: 'btn btn-primary'
-            = f.file_field :avatar, class: 'form_control_file'
+            = f.file_field :avatar, class: 'js-avatar-preview'
         = f.email_field :email, placeholder: "E-Mail", class: 'form_control'
         = f.password_field :password, placeholder: 'password', class: 'input user-password'
       .col-md-12
