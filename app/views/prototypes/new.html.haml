@@ -9,7 +9,6 @@
           .cover-image-upload.js-image-preview
             = f.fields_for :thumbnails do |thumbnails_form|
               .js-image-upload
-                = image_tag (""), class: "img-responsive"
                 = thumbnails_form.file_field :image_url, class: "cover-image-upload"
                 = thumbnails_form.hidden_field :status, value: "main"
         .col-md-12
