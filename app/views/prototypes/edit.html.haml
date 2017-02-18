@@ -6,36 +6,25 @@
           = f.text_field :title, autofocus: true, placeholder: "Title", class: "proto-new-title"
       .row
         .col-md-12
-          .cover-image-upload.js-image-preview
+          .cover-image-upload.js-image-preview#main
             = f.fields_for :thumbnails, @prototype.thumbnails.main do |thumbnails_form|
-              .js-image-upload
-                = image_tag(@prototype.thumbnails.first.image_url, class: 'img-responsive')
-                = thumbnails_form.file_field :image_url, class: "cover-image-upload"
-                = thumbnails_form.hidden_field :status, value: "main"
-
-
-
-
+              = thumbnails_form.file_field :image_url
+              = thumbnails_form.hidden_field :status, value: "main"
+              = image_tag(@prototype.thumbnails.first.image_url, class: 'img-responsive',id: 'main_image')
         .col-md-12
           %ul.proto-sub-list.list-group
             = f.fields_for :thumbnails, @prototype.thumbnails.sub.first do |thumbnails_form|
               %li.list-group-item.col-md-4
-                .image-upload.js-image-preview
-                  = image_tag(@prototype.thumbnails.second.image_url, class: 'img-responsive')
-                  = thumbnails_form.file_field :image_url, class: "img-responsive"
+                .image-upload.js-image-preview#first_sub
+                  = thumbnails_form.file_field :image_url, class:"image-upload"
                   = thumbnails_form.hidden_field :status, value: "sub"
-
-
+                  = image_tag(@prototype.thumbnails.second.image_url, class: 'img-responsive', id: 'first_sub_image')
             = f.fields_for :thumbnails, @prototype.thumbnails.sub.second do |thumbnails_form|
               %li.list-group-item.col-md-4
-                .image-upload.js-image-preview
-                  = image_tag(@prototype.thumbnails.third.image_url, class: 'img-responsive') if @prototype.thumbnails.third
-                  = thumbnails_form.file_field :image_url, class: "img-responsive"
+                .image-upload.js-image-preview#second_sub
+                  = thumbnails_form.file_field :image_url, class:"image-upload"
                   = thumbnails_form.hidden_field :status, value: "sub"
-
-
-
-
+                  = image_tag(@prototype.thumbnails.third.image_url, class: 'img-responsive', id: 'second_sub_image')
 
             %li.list-group-item.col-md-4
               .image-upload-plus
