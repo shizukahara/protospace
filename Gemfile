@@ -57,5 +57,6 @@ end
   gem 'carrierwave'
   gem 'rmagick'
   gem 'acts-as-taggable-on'
+  gem 'kaminari'
 
 
