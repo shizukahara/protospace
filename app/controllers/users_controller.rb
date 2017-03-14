@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @prototypes = current_user.prototypes.order("created_at DESC").includes(:tags)
+    @prototypes = current_user.prototypes.order("created_at DESC").includes(:tags).page(params[:page]).per(8)
   end
 
   def edit
