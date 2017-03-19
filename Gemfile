@@ -58,5 +58,7 @@ end
   gem 'rmagick'
   gem 'acts-as-taggable-on'
   gem 'kaminari'
+  gem 'fog'
+  gem 'dotenv-rails'
 
 
