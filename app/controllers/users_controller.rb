@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+
+  before_action :get_user, only: [:show, :edit]
+
   def show
     @user = User.find(params[:id])
     @prototypes = current_user.prototypes.order("created_at DESC").includes(:tags).page(params[:page]).per(8)
@@ -12,6 +15,7 @@ class UsersController < ApplicationController
   def update
     current_user.update(update_params)
     redirect_to action: :show
+
   end
 
   def destroy
@@ -24,6 +28,10 @@ class UsersController < ApplicationController
   private
   def update_params
     params.require(:user).permit(:image, :text, :avatar, :work, :private, :profile, :member)
+  end
+
+  def get_user
+    @user = User.find(params[:id])
   end
 
 end
