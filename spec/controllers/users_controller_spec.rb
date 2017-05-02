@@ -8,6 +8,17 @@ describe UsersController do
   }}
 
 
+#current_userのスタブ
+  before do
+  @user = User.first
+  allow(controller)
+    .to receive(:current_user)
+    .and_return(@user)
+  end
+
+
+
+
 
 
     describe 'GET #show' do
@@ -42,18 +53,20 @@ describe UsersController do
         patch :update, params
       end
 
-      it 'assigns the requested user to @user' do
-        expect(assigns(:user)).to eq user
-      end
-
       it "changes user's attribtues" do
+        user = create(:user, nickname: "shizuka")
+        patch :update, id: user, user: attributes_for(:user)
         user.reload
-        expect(user.name).to eq "hoge"
+        expect(user.nickname).to eq 'shizuka'
       end
 
-      it 'redirects root_path' do
-        expect(response).to redirect_to root_path
+      it 'redirects root path' do
+        patch :update, id: user, user: attributes_for(:user)
+        expect(response).to redirect_to user_path
       end
+
+
+
     end
 
 
