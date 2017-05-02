@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-#テストのbefore_action
+
   before_action :get_user, only: [:show, :edit]
 
   def show
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update

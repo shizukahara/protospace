@@ -35,9 +35,6 @@ describe PrototypesController, type: :controller do
       end
     end
 
-
-
-
     describe 'GET #new' do
       it "renders the :new template" do
         get :new
@@ -67,15 +64,6 @@ describe PrototypesController, type: :controller do
       end
     end
 
-  #def show
-   # @thumbnails = @prototype.thumbnails.sub
-   # @user = @prototype.user
-   # @comment = Comment.new(prototype_id: @prototype_id)
-   #@comments = @prototype.comments.includes(:user)
-    #@like  = @prototype.likes.find_by(user_id: current_user.id)
-  #end
-
-
     describe 'GET #edit' do
       before do
         get :edit, id: prototype.id
@@ -97,7 +85,5 @@ describe PrototypesController, type: :controller do
         expect(response).to render_template :edit
       end
     end
-
-
 end
 
