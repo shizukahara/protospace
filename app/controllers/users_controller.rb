@@ -1,23 +1,21 @@
 class UsersController < ApplicationController
 
 #テストのbefore_action
-
+  before_action :get_user, only: [:show, :edit]
 
   def show
     @user = User.find(params[:id])
-    #@prototypes = current_user.prototypes.order("created_at DESC").includes(:tags).page(params[:page]).per(8)
-    @prototypes = @user.prototypes
+    @prototypes = current_user.prototypes.order("created_at DESC").includes(:tags).page(params[:page]).per(8)
   end
 
   def edit
-
+    
   end
 
   def update
-    #current_user.update(update_params)
-    @user.update(update_params)
+    current_user.update(update_params)
     redirect_to action: :show
-    #テスト用
+
   end
 
   def destroy
