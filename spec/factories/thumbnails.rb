@@ -1,6 +1,7 @@
 include ActionDispatch::TestProcess
 FactoryGirl.define do
   factory :thumbnail do
+    prototype
     image_url { fixture_file_upload("spec/fixtures/img/sample.png") }
 
     trait :main do
@@ -11,7 +12,7 @@ FactoryGirl.define do
       status   :sub
     end
     factory :main_image, traits: [:main]
-    factory :sub_images, traits: [:sub]
+    factory :sub_image, traits: [:sub]
   end
 end
 
