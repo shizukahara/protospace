@@ -49,6 +49,9 @@ group :test do
   gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
   gem "launchy"             #テストのデバック用
   gem "poltergeist"         #capybaraのためのドライバ
+  gem 'shoulda-matchers'
+  gem "selenium-webdriver"
+  gem 'capybara-screenshot'
 end
 
 group :development do
