@@ -9,13 +9,13 @@ describe Thumbnail do
       end
     end
 
-    #describe "without image_url attribute" do
-     # it "returns error" do
-      #  thumbnail = build(:thumbnail, image_url: nil)
-       # thumbnail.valid?
-       # expect(thumbnail.errors[:image_url]).to include("can't be blank")
-      #end
-   # end
+#     describe "without image_url attribute" do
+#      it "returns error" do
+#        thumbnail = build(:thumbnail, image_url: nil)
+#        thumbnail.valid?
+#        expect(thumbnail.errors[:image_url]).to include("can't be blank")
+#      end
+#   end
 
     describe "without status attribute" do
       it "returns error" do
@@ -26,3 +26,4 @@ describe Thumbnail do
     end
   end
 end
+
